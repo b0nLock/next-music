@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "store/index.ts", "store/reducers/index.ts"  ],
   "exclude": ["node_modules"]
 }
