@@ -1,13 +1,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { configureStore, Reducer } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import Create from "@/pages/tracks/create";
-import { playerReducer } from "@/store/reducers/playerReducer";
-import { trackReducer } from "@/store/reducers/trackReducer";
+import rootReducer from "@/store/reducers";
 import { useRouter } from "next/router";
-import { PlayerState } from "@/types/player";
-import { TrackState } from "@/types/track";
 
 // Mock next/router
 jest.mock("next/router", () => ({
@@ -95,10 +92,7 @@ describe("Create Page - First Form (Step 0)", () => {
   it("should display all form fields in step 0 with correct labels", () => {
     // Create a minimal Redux store for testing
     const store = configureStore({
-      reducer: {
-        player: playerReducer as unknown as Reducer<PlayerState>,
-        track: trackReducer as unknown as Reducer<TrackState>,
-      },
+      reducer: rootReducer,
     });
 
     render(
@@ -115,10 +109,7 @@ describe("Create Page - First Form (Step 0)", () => {
 
   it("should render step 0 as the initial active step", () => {
     const store = configureStore({
-      reducer: {
-        player: playerReducer as unknown as Reducer<PlayerState>,
-        track: trackReducer as unknown as Reducer<TrackState>,
-      },
+      reducer: rootReducer,
     });
 
     render(
@@ -145,10 +136,7 @@ describe("Create Page - First Form (Step 0)", () => {
 
   it("should have input fields as empty initially", () => {
     const store = configureStore({
-      reducer: {
-        player: playerReducer as unknown as Reducer<PlayerState>,
-        track: trackReducer as unknown as Reducer<TrackState>,
-      },
+      reducer: rootReducer,
     });
 
     render(
