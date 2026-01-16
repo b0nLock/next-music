@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -29,6 +30,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "store/index.ts", "store/reducers/index.ts"  ],
+, "store/index.ts", "store/reducers/index.ts", "jest.config.js"  ],
   "exclude": ["node_modules"]
 }
