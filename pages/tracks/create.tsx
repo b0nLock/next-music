@@ -34,7 +34,7 @@ const Create = () => {
       }
       axios
         .post("http://localhost:5000/tracks", formData)
-        .then((res) => router.push("/tracks"))
+        .then(() => router.push("/tracks"))
         .catch((e) => console.log(e));
     }
   };

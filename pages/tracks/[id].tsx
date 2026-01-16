@@ -37,6 +37,7 @@ const TrackPage = ({ serverTracks }: { serverTracks: ITrack }) => {
         К списку
       </Button>
       <Grid container style={{ margin: "10px 0" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={"http://localhost:5000/" + track.picture}
           width={200}
