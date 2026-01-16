@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Provider } from "react-redux";
 import { AppProps } from "next/app";
-import { wrapper } from "../store/";
+import { wrapper } from "../store/index";
 
 const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   const { store, props } = wrapper.useWrappedStore(rest);
