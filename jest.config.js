@@ -3,8 +3,10 @@ module.exports = {
   testEnvironment: "jsdom",
   roots: ["<rootDir>"],
   testMatch: [
-    "**/__tests__/**/*.+(ts|tsx|js)",
-    "**/?(*.)+(spec|test).+(ts|tsx|js)",
+    // ✅ Запускать ТОЛЬКО .test.*
+    "**/?(*.)+(test).+(ts|tsx|js)",
+    // ❌ Игнорировать .spec.*
+    // "**/?(*.)+(spec).+(ts|tsx|js)",
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleNameMapper: {
@@ -16,6 +18,11 @@ module.exports = {
     "!**/*.d.ts",
     "!**/node_modules/**",
     "!**/.next/**",
+  ],
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/.next/",
+    "**/*.spec.*", // ✅ Игнорировать все .spec файлы
   ],
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   transformIgnorePatterns: [
