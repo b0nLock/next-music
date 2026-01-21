@@ -16,6 +16,15 @@ export default defineConfig({
   timeout: 60000, // 60 сек на тест (file upload)
   expect: { timeout: 15000 },
 
+  // 🎯 КЛЮЧЕВАЯ НАСТРОЙКА
+  testMatch: [
+    "**/*.spec.ts", // ✅ Запускать .spec.ts
+    "**/*.spec.test.ts", // ✅ Запускать .spec.test.ts
+  ],
+  testIgnore: [
+    "**/*.test.ts", // ❌ Игнорировать .test.ts
+  ],
+
   use: {
     baseURL: "http://localhost:3000",
     trace: "on-first-retry",
