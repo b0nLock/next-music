@@ -1,5 +1,7 @@
-import * as PlayerActionCreators from '../actions-creators/player';
+import * as PlayerActionCreators from "../actions-creators/player";
 
-export default {
-    ...PlayerActionCreators
-}
+const actionCreators = {
+  ...PlayerActionCreators,
+};
+
+export default actionCreators;

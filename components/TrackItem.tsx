@@ -27,6 +27,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
       <IconButton onClick={play}>
         {!active ? <PlayArrow /> : <Pause />}
       </IconButton>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         width={70}
         height={70}
