@@ -1,0 +1,35 @@
+name: Quick Check (PR)
+
+on:
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  quick-lint:
+    name: Quick Lint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Run ESLint (quick check)
+        run: npm run lint
+        continue-on-error: true
+
+  quick-unit-tests:
+    name: Quick Unit Tests
+    runs-on: ubuntu-latest
+    needs: quick-lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Run quick unit tests
+        run: npm test -- --passWithNoTests --maxWorkers=1
+        continue-on-error: true

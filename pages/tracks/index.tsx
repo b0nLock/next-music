@@ -37,7 +37,7 @@ const Index = () => {
 export default Index;
 
 export const getServerSideProps: GetServerSideProps =
-  wrapper.getServerSideProps((store) => async (_context) => {
+  wrapper.getServerSideProps((store) => async () => {
     const dispatch = store.dispatch as NextThunkDispatch;
     await dispatch(fetchTracks());
     return { props: {} };

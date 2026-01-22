@@ -9,8 +9,11 @@
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "test:all": "npm run lint && npm run test:coverage -- --maxWorkers=1 && npm run test:e2e",
+    "test:quick": "npm run lint && npm run test -- --maxWorkers=1"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
